@@ -14,5 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'главная страница сайта';
+});
+
+Route::get('/posts', function () {
+    return 'список постов';
+});
+
+Route::get('/post/1', function () {
+    return 'первый пост';
+});
+
+Route::get('/test', function () {
+    return 'это тестовая страница';
+});
+
+Route::get('dir/test', function () {
+    return 'это тестовая страница в dir';
 });
