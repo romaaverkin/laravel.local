@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,8 @@ Route::get('/', function () {
     return 'главная страница сайта';
 });
 
-Route::get('/user/profile/{id}', function ($id) {
-    return 'profile';
-})->name('users');
+Route::get('/post', [PostController::class, 'show']);
+
+Route::get('/user', [UserController::class, 'show']);
+
+Route::get('/user/all', [UserController::class, 'all']);
