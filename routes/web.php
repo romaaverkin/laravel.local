@@ -17,11 +17,6 @@ Route::get('/', function () {
     return 'главная страница сайта';
 });
 
-Route::prefix('admin')->group(function () {
-    Route::get('/users', function () {
-        return 'all';
-    });
-    Route::get('/user/{id}', function ($id) {
-        return $id;
-    });
-});
+Route::get('/user/profile/{id}', function ($id) {
+    return 'profile';
+})->name('users');
