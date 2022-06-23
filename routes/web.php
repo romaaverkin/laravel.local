@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
@@ -26,3 +27,5 @@ Route::get('/user/{name}/{surname}', [UserController::class, 'show']);
 Route::get('/user/all', [UserController::class, 'all']);
 
 Route::get('user/{name}', [UserController::class, 'one']);
+
+Route::get('/message', [MessageController::class, 'index']);
