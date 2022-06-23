@@ -19,8 +19,10 @@ Route::get('/', function () {
     return 'главная страница сайта';
 });
 
-Route::get('/post/{id}', [PostController::class, 'show']);
+Route::get('/post', [PostController::class, 'show']);
 
-Route::get('/user/{name}', [UserController::class, 'show']);
+Route::get('/user/{name}/{surname}', [UserController::class, 'show']);
 
-Route::get('/user/{surname}/{name}', [UserController::class, 'all']);
+Route::get('/user/all', [UserController::class, 'all']);
+
+Route::get('user/{name}', [UserController::class, 'one']);

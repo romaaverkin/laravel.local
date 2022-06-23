@@ -4,25 +4,28 @@ namespace App\Http\Controllers;
 
 class UserController extends Controller
 {
-    public function show($name)
+    public function show($name, $surname)
     {
-        $users = [
-            'user1' => 'city1',
-            'user2' => 'city2',
-            'user3' => 'city3',
-            'user4' => 'city4',
-            'user5' => 'city5',
-        ];
-
-        if (array_key_exists($name, $users)) return $users[$name];
-
-        return 'Передано несуществующие имя!';
+        return view('user.hello', [
+            'title' => 'Имя и фамилия',
+            'name' => $name,
+            'surname' => $surname,
+        ]);
     }
 
-    public function all($surname, $name)
+    public function all()
     {
-        return 'Фамилия ' . $surname . ' Имя ' . $name;
+        return view('user.all', [
+            'title' => 'Все',
+            'text' => 'Для всех',
+        ]);
+    }
+
+    public function one($name)
+    {
+        return view('user.one', [
+            'title' => 'Только имя',
+            'name' => $name
+        ]);
     }
 }
-
-
