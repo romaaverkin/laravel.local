@@ -10,16 +10,16 @@ class MessageController extends Controller
     {
         return view('message.index', [
             'title' => 'Вывод переменных',
-            'name' => 'Роман',
-            'age' => '43',
-            'salary' => '75000',
-            'main_class' => 'main',
-            'input1' => 'number1',
-            'input2' => 'number2',
-            'input3' => 'number3',
-            'color_red' => 'color: red',
-            'text' => 'Google',
-            'href' => 'https://www.google.ru/',
+            'employee' => [
+                'name' => 'Роман',
+                'age' => '43',
+                'salary' => '75000',
+            ],
+            'my_array' => [
+                'first' => 'one',
+                'second' => 'two',
+                'three' => 'three',
+            ],
         ]);
     }
 }
