@@ -3,11 +3,9 @@
         {{ $title }}
     </x-slot:title>
 
-{{--    @if(!$age)--}}
-{{--        <p>Вам нет 18 лет.</p>--}}
-{{--    @endif--}}
-
-    @unless($age == 18)
-        <p>Вам нет 18 лет.</p>
-    @endunless
+    <ul>
+        @foreach($numbers as $key => $elem)
+            <li>{{ $key + 1 }} {{ $elem }}</li>
+        @endforeach
+    </ul>
 </x-layout>
