@@ -3,9 +3,13 @@
         {{ $title }}
     </x-slot:title>
 
-    <ul>
-        @foreach($numbers as $key => $elem)
-            <li>{{ $key + 1 }} {{ $elem }}</li>
-        @endforeach
-    </ul>
+    @if(is_array($data))
+        <ul>
+            @foreach($data as $elem)
+                <li>{{ $elem }}</li>
+            @endforeach
+        </ul>
+    @else
+        <p>Число {{ $data }}</p>
+    @endif
 </x-layout>
