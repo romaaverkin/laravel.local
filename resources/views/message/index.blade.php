@@ -3,11 +3,11 @@
         {{ $title }}
     </x-slot:title>
 
-    @foreach($arr as $subArr)
-        @if($subArr == 0)
-            @break
-        @endif
-        <p>{{ $subArr }}</p>
-    @endforeach
+    <ul>
+        @foreach($arr as $subArr)
+            @continue($subArr == 0)
+            <li>{{ $subArr }}</li>
+        @endforeach
+    </ul>
 
 </x-layout>
