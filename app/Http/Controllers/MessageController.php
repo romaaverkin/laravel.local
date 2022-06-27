@@ -10,7 +10,6 @@ class MessageController extends Controller
     {
         return view('message.index', [
             'title' => 'Вывод переменных',
-            'arr' => [4, 5, 9, 0, 12],
         ]);
     }
 }
