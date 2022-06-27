@@ -3,13 +3,19 @@
         {{ $title }}
     </x-slot:title>
 
-    @if(is_array($data))
-        <ul>
-            @foreach($data as $elem)
-                <li>{{ $elem }}</li>
-            @endforeach
-        </ul>
-    @else
-        <p>Число {{ $data }}</p>
-    @endif
+    <table border="1">
+        <caption>Двумерный массив</caption>
+        <tr>
+            <th>Первый массив</th>
+            <th>Второй массив</th>
+            <th>Третий массив</th>
+        </tr>
+        @foreach($arr as $subArr)
+            <tr>
+                @foreach($subArr as $elem)
+                    <td>{{ $elem }}</td>
+                @endforeach
+            </tr>
+        @endforeach
+    </table>
 </x-layout>
