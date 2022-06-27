@@ -3,10 +3,11 @@
         {{ $title }}
     </x-slot:title>
 
-    @forelse($users as $user)
-        <p>Пользователь {{ $user }}</p>
-    @empty
-        <p>в массиве нет элементов</p>
-    @endforelse
+    @foreach($arr as $subArr)
+        @if($subArr == 0)
+            @break
+        @endif
+        <p>{{ $subArr }}</p>
+    @endforeach
 
 </x-layout>

@@ -10,8 +10,7 @@ class MessageController extends Controller
     {
         return view('message.index', [
             'title' => 'Вывод переменных',
-//            'users' => ['Роман', 'Оля', 'Катя'],
-            'users' => [],
+            'arr' => [4, 5, 9, 0, 12],
         ]);
     }
 }
