@@ -3,8 +3,14 @@
         {{ $title }}
     </x-slot:title>
 
-    @for($i = 1; $i <= 10; $i++)
-        <p>{{ $i }}</p>
-    @endfor
+    <ul>
+        @foreach($arr as $elem)
+            @if($elem == $day)
+                <li class="active">{{ $elem }}</li>
+            @else
+                <li>{{ $elem }}</li>
+            @endif
+        @endforeach
+    </ul>
 
 </x-layout>
