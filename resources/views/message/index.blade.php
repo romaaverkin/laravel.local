@@ -2,8 +2,12 @@
     <x-slot:title>
         {{ $title }}
     </x-slot:title>
-    <p>Имя {{ $employee['name'] }}</p>
-    <p>Возраст {{ $employee['age'] }}</p>
-    <p>Зарплата {{ $employee['salary'] }}</p>
-    <p>В массиве {{ count($my_array) }} элемента.</p>
+
+{{--    @if(!$age)--}}
+{{--        <p>Вам нет 18 лет.</p>--}}
+{{--    @endif--}}
+
+    @unless($age == 18)
+        <p>Вам нет 18 лет.</p>
+    @endunless
 </x-layout>
