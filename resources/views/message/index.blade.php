@@ -3,18 +3,24 @@
         {{ $title }}
     </x-slot:title>
 
+    <ul>
+        @foreach($employees as $employee)
+            <li>{{ $employee['name'] }} {{ $employee['surname'] }} {{ $employee['salary'] }}</li>
+        @endforeach
+    </ul>
+
     <table border="1">
-        <caption>Двумерный массив</caption>
+        <caption>Многомерный массив</caption>
         <tr>
-            <th>Первый массив</th>
-            <th>Второй массив</th>
-            <th>Третий массив</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Зарплата</th>
         </tr>
-        @foreach($arr as $subArr)
+        @foreach($employees as $employee)
             <tr>
-                @foreach($subArr as $elem)
-                    <td>{{ $elem }}</td>
-                @endforeach
+                <td>{{ $employee['name'] }}</td>
+                <td>{{ $employee['surname'] }}</td>
+                <td>{{ $employee['salary'] }}</td>
             </tr>
         @endforeach
     </table>
