@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\VueController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
@@ -29,3 +30,5 @@ Route::get('/user/all', [UserController::class, 'all']);
 Route::get('user/{name}', [UserController::class, 'one']);
 
 Route::get('/message', [MessageController::class, 'index']);
+
+Route::get('/lesson', [VueController::class, 'lesson']);
