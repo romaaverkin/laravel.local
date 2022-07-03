@@ -4,7 +4,10 @@
     </x-slot:title>
 
     <div id="app">
-        <button v-on:click="show">Нажми на меня</button>
+        <button v-on:click="addItem">Добавить</button>
+        <ul>
+            <li v-for="item in items">@{{ item }}</li>
+        </ul>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -13,13 +16,13 @@
         let app = new Vue({
             el: '#app',
             data: {
-                num1: 1,
-                num2: 2,
-                num3: 3,
+                items: [5, 2, 0, -1, 15]
             },
             methods: {
-                show: function () {
-                    alert(this.num1 + this.num2 + this.num3)
+                addItem: function () {
+                    this.items = this.items.filter(function (elem) {
+                        return elem > 0 && elem < 10
+                    })
                 }
             }
         });
