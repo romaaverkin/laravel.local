@@ -4,10 +4,8 @@
     </x-slot:title>
 
     <div id="app">
-        <button v-on:click="addItem">Добавить</button>
-        <ul>
-            <li v-for="item in items">@{{ item }}</li>
-        </ul>
+        <p>@{{ text }}</p>
+        <button v-on:click="changeText">Изменить буквы</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -16,14 +14,21 @@
         let app = new Vue({
             el: '#app',
             data: {
-                items: [5, 2, 0, -1, 15]
+                text: 'привет, роман'
             },
             methods: {
-                addItem: function () {
-                    this.items = this.items.filter(function (elem) {
-                        return elem > 0 && elem < 10
-                    })
-                }
+                upperCaseFirst: function () {
+                    let first_char = this.text.charAt(0).toUpperCase() + this.text.slice(1)
+                    this.text = first_char
+                },
+                upperCaseLast: function () {
+                    let last_char = this.text.slice(0, -1) + this.text.charAt(this.text.length - 1).toUpperCase()
+                    this.text = last_char
+                },
+                changeText: function () {
+                    this.upperCaseFirst()
+                    this.upperCaseLast()
+                },
             }
         });
     </script>
