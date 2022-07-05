@@ -13,7 +13,7 @@ return new class extends Migration {
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->renameColumn('title', 100)->change();
+            $table->string('name');
         });
     }
 
@@ -24,6 +24,9 @@ return new class extends Migration {
      */
     public function down()
     {
-        //
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropColumn('name');
+        });
     }
 };
+
