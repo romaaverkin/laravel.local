@@ -18,16 +18,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 10; $i++) {
-            DB::table('users')->insert([
-                'name' => Str::random(10),
-                'surname' => Str::random(10),
-                'birthday' => '1979-01-22',
-                'email' => Str::random(10).'@gmail.com',
-                'password' => Hash::make('12345'),
-                'created_at' => Carbon::now()->toDateTimeString(),
-                'updated_at' => Carbon::now()->toDateTimeString(),
-            ]);
-        }
+        $this->call([
+            UserSeeder::class,
+            PostSeeder::class,
+        ]);
     }
 }
