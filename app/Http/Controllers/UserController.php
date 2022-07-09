@@ -18,17 +18,9 @@ class UserController extends Controller
     public function all()
     {
         $users = DB::table('users')
-            ->select('name', 'email')
-            ->where(function ($query) {
-                $query
-                    ->where('age', '>=', 20)
-                    ->where('age', '<=', 30);
-            })
-            ->orWhere(function ($query) {
-                $query
-                    ->where('salary', '>=', 400)
-                    ->where('salary', '<=', 800);
-            })
+            ->skip(3)
+            ->where('age', 30)
+            ->take(DB::table('users')->count())
             ->get();
 
         return view('user.all', [

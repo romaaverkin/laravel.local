@@ -2,16 +2,9 @@
     <x-slot:title>
         {{ $title }}
     </x-slot:title>
-    <table border="1">
-        <tr>
-            <th>Имя</th>
-            <th>Адрес</th>
-        </tr>
+    <ul>
         @foreach($users as $user)
-            <tr>
-                <td>{{ $user->name }}</td>
-                <td>{{ $user->email }}</td>
-            </tr>
+            <li>{{ $user->id }} {{ $user->age }} {{$user->created_at}}</li>
         @endforeach
-    </table>
+    </ul>
 </x-layout>
