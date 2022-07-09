@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+
 class UserController extends Controller
 {
     public function show($name, $surname)
@@ -15,9 +17,10 @@ class UserController extends Controller
 
     public function all()
     {
+        $users = DB::table('users')->get();
         return view('user.all', [
-            'title' => 'Все',
-            'text' => 'Для всех',
+            'title' => 'Вывод полученных записей Users',
+            'users' => $users,
         ]);
     }
 

@@ -8,12 +8,13 @@ class PostController extends Controller
 {
     public function show()
     {
-        $users = DB::table('users')->get();
-
-        return view('user.all', [
-            'title' => 'Вывод полученных записей',
-            'users' => $users
-        ]);
+        {
+            $posts = DB::table('posts')->get();
+            return view('post.show', [
+                'posts' => $posts,
+                'title' => 'Вывод полученных записей',
+            ]);
+        }
 
     }
 }
