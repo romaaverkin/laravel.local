@@ -18,9 +18,7 @@ class UserController extends Controller
     public function all()
     {
         $users = DB::table('users')
-            ->skip(3)
-            ->where('age', 30)
-            ->take(DB::table('users')->count())
+            ->join('cities', 'users.id', '=', 'cities.users_id')
             ->get();
 
         return view('user.all', [
