@@ -2,9 +2,22 @@
     <x-slot:title>
         {{ $title }}
     </x-slot:title>
-    <ul>
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Имя</th>
+            <th>Users_id</th>
+            <th>Возраст</th>
+            <th>Зарплата</th>
+        </tr>
         @foreach($users as $user)
-            <li>{{ $user->id }} {{ $user->age }} {{$user->created_at}}</li>
+            <tr>
+                <td>{{ $user->id }}</td>
+                <td>{{ $user->name }}</td>
+                <td>{{ $user->email }}</td>
+                <td>{{ $user->age }}</td>
+                <td>{{ $user->salary }}</td>
+            </tr>
         @endforeach
-    </ul>
+    </table>
 </x-layout>

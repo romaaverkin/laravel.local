@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -17,12 +18,19 @@ class UserController extends Controller
 
     public function all()
     {
-        $users = DB::table('users')
-            ->join('cities', 'users.id', '=', 'cities.users_id')
-            ->get();
+        $user = new User();
+
+        $user->name = 'Василий';
+        $user->email = 'vasya@mail.ru';
+        $user->age = 34;
+        $user->salary = 40000;
+        
+        $user->save();
+
+        $users = User::all();
 
         return view('user.all', [
-            'title' => 'Вывод полученных записей Users',
+            'title' => 'Получение данных из моделей Eloquent в Laravel',
             'users' => $users,
         ]);
     }
